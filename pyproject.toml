@@ -1,0 +1,7 @@
+
+[project]
+name = "demon-excellent"
+version = "0.1.0"
+description = "DEMON EXCELLENT Discord Bot and Website"
+authors = ["Your Name <you@example.com>"]
+requires-python = ">=3.11"

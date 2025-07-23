@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMON EXCELLENT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1404937854433871"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- إعلان عند دخول الموقع -->
+    <div id="welcomeAd" class="welcome-ad" style="display: none;">
+        <div class="ad-container">
+            <div class="ad-content-wrapper">
+                <!-- Demon_Excellent -->
+                <ins class="adsbygoogle"
+                     style="display:block; min-width: 320px; min-height: 100px;"
+                     data-ad-client="ca-pub-1404937854433871"
+                     data-ad-slot="9045724658"
+                     data-ad-format="rectangle"
+                     data-full-width-responsive="false"></ins>
+            </div>
+            <button class="close-ad-btn" onclick="closeWelcomeAd()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="logo-container">
+                <h1 class="logo">
+                    <span class="demon">DEMON</span>
+                    <span class="excellent">EXCELLENT</span>
+                    <i class="fas fa-skull-crossbones logo-icon"></i>
+                </h1>
+            </div>
+            
+            <div class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="اكتب اسمك" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="text" id="discordCode" placeholder="ضع كود الديسكورد من خلال كتابة !كود في سيرفر ديسكورد" required>
+                </div>
+                
+                <button class="login-btn" onclick="login()">
+                    <i class="fas fa-sign-in-alt"></i>
+                    الدخول إلى الصفحة الرئيسية
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainPage" class="page">
+        <!-- القائمة الجانبية -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>القائمة الرئيسية</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> <span>الصفحة الرئيسية</span></a></li>
+                <li><a href="#" onclick="showPage('tasks')"><i class="fas fa-tasks"></i> <span>المهام اليومية والأسبوعية</span></a></li>
+                <li><a href="#" onclick="showPage('boxes')"><i class="fas fa-box"></i> <span>الصناديق الذهبية</span></a></li>
+                <li><a href="#" onclick="showPage('wheel')"><i class="fas fa-dharmachakra"></i> <span>عجلة الحظ</span></a></li>
+                <li><a href="#" onclick="showPage('leaderboard')"><i class="fas fa-trophy"></i> <span>لوحة المتصدرين</span></a></li>
+                <li><a href="#" onclick="showPage('profile')"><i class="fas fa-user"></i> <span>ملفي الشخصي</span></a></li>
+                <li><a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i> <span>اتصل بنا</span></a></li>
+                <li><a href="#" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> <span>سياسة الخصوصية</span></a></li>
+                <li><a href="#" onclick="showPage('about')"><i class="fas fa-info-circle"></i> <span>من نحن</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- الهيدر العلوي مع بيانات المستخدم واللوجو -->
+            <header class="top-header">
+                <div class="header-content">
+                    <div class="user-info">
+                        <img id="userAvatar" src="https://via.placeholder.com/50" alt="صورة المستخدم" class="user-avatar">
+                        <div class="user-details">
+                            <span id="userName" class="user-name">اسم المستخدم</span>
+                            <div class="user-stats">
+                                <span class="user-level" id="currentLevel">المستوى 1</span>
+                                <div class="vex-display">
+                                    <i class="fas fa-coins"></i>
+                                    <span id="userVex">0</span>
+                                    <span>ڤكس</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="logo-container">
+                        <h1 class="logo">
+                            <span class="demon">DEMON</span>
+                            <span class="excellent">EXCELLENT</span>
+                            <i class="fas fa-skull-crossbones logo-icon"></i>
+                        </h1>
+                    </div>
+                    
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                        <span>MENU</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- إعلان متكرر كل 5 دقائق -->
+            <div id="periodicAd" class="periodic-ad" style="display: none;">
+                <div class="ad-content">
+                    <div class="ad-content-wrapper">
+                        <!-- Demon_Excellent -->
+                        <ins class="adsbygoogle"
+                             style="display:block; min-width: 320px; min-height: 100px;"
+                             data-ad-client="ca-pub-1404937854433871"
+                             data-ad-slot="9045724658"
+                             data-ad-format="rectangle"
+                             data-full-width-responsive="false"></ins>
+                    </div>
+                    <button class="close-ad-btn" onclick="closePeriodicAd()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="homeContent" class="content-section active">
+                <!-- ترحيب بسيط -->
+                <div class="welcome-section">
+                    <h2>مرحباً بك في DEMON EXCELLENT 🔥</h2>
+                    <p>استمتع بتجربة رائعة مع مجتمعنا المتميز!</p>
+                </div>
+
+                <!-- لوحات المتصدرين الثلاثة -->
+                <div class="leaderboards-container">
+                    <div class="leaderboard-section">
+                        <div class="leaderboard-header">
+                            <i class="fas fa-coins"></i>
+                            <h3>الأغنى بالڤكس</h3>
+                        </div>
+                        <div id="vexLeaderboard" class="leaderboard-content">
+                            <!-- سيتم ملؤها بـ JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-section">
+                        <div class="leaderboard-header">
+                            <i class="fas fa-star"></i>
+                            <h3>الأعلى مستوى</h3>
+                        </div>
+                        <div id="levelLeaderboard" class="leaderboard-content">
+                            <!-- سيتم ملؤها بـ JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-section">
+                        <div class="leaderboard-header">
+                            <i class="fas fa-comments"></i>
+                            <h3>الأكثر تفاعلاً</h3>
+                        </div>
+                        <div id="chatLeaderboard" class="leaderboard-content">
+                            <!-- سيتم ملؤها بـ JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tasksContent" class="content-section">
+                <h2><i class="fas fa-tasks"></i> المهام</h2>
+                
+                <div class="tasks-container">
+                    <div class="daily-tasks">
+                        <h3>المهام اليومية</h3>
+                        <div class="task-item">
+                            <span>تفاعل في شات الديسكورد</span>
+                            <span class="reward">20 <i class="fas fa-coins"></i></span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>جمع 500 ڤكس</span>
+                            <span class="reward">20 <i class="fas fa-coins"></i></span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>افتح عشر صناديق</span>
+                            <span class="reward">50 <i class="fas fa-coins"></i></span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>لف عجلة الحظ خمس مرات</span>
+                            <span class="reward">35 <i class="fas fa-coins"></i></span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>افتح الموقع الويب لمدة عشر دقائق</span>
+                            <span class="reward">30 <i class="fas fa-coins"></i></span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="weekly-tasks">
+                        <h3>المهام الأسبوعية</h3>
+                        <div class="task-item">
+                            <span>جمع 2000 ڤكس</span>
+                            <span class="reward">100 <i class="fas fa-coins"></i> + 20 XP</span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>افتح عشرين صندوق</span>
+                            <span class="reward">200 <i class="fas fa-coins"></i> + 30 XP</span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <span>افتح الموقع الويب لمدة ساعة</span>
+                            <span class="reward">300 <i class="fas fa-coins"></i> + 50 XP</span>
+                            <div class="task-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="boxesContent" class="content-section">
+                <h2><i class="fas fa-box"></i> الصناديق</h2>
+                
+                <div class="boxes-container">
+                    <div class="box-image">
+                        <i class="fas fa-gift-card golden-box"></i>
+                        <h3>الصناديق الذهبية</h3>
+                    </div>
+                    
+                    <div class="box-rewards">
+                        <h4>الجوائز المحتملة:</h4>
+                        <ul>
+                            <li>50 ڤكس - نسبة 50%</li>
+                            <li>200 ڤكس - نسبة 30%</li>
+                            <li>500 ڤكس - نسبة 10%</li>
+                            <li>300 اكس بي - نسبة 7%</li>
+                            <li>إضافة مستوى - نسبة 3%</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="box-actions">
+                        <button class="box-btn vex-btn" onclick="openBoxWithVex()">
+                            <i class="fas fa-coins"></i>
+                            100 ڤكس
+                        </button>
+                        <button class="box-btn ad-btn" onclick="openBoxWithAd()">
+                            <i class="fas fa-play"></i>
+                            مشاهدة إعلان
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wheelContent" class="content-section">
+                <h2><i class="fas fa-dharmachakra"></i> عجلة الحظ</h2>
+                <div class="coming-soon">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>قريباً..❤️</h3>
+                </div>
+            </div>
+
+            <div id="contactContent" class="content-section">
+                <h2><i class="fas fa-envelope"></i> اتصل بنا</h2>
+                <div class="contact-info">
+                    <p>للتواصل معنا والاستفسارات:</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:belinder2525@gmail.com">belinder2525@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="privacyContent" class="content-section">
+                <h2><i class="fas fa-shield-alt"></i> سياسة الخصوصية</h2>
+                <div class="text-content">
+                    <p>نحن في DEMON EXCELLENT نلتزم بحماية خصوصيتك وبياناتك الشخصية. هذه السياسة توضح كيفية جمع واستخدام وحماية المعلومات التي تقدمها لنا.</p>
+                    
+                    <h3>جمع المعلومات:</h3>
+                    <p>نقوم بجمع المعلومات التي تقدمها طوعاً عند استخدام خدماتنا، مثل اسم المستخدم ومعلومات Discord. لا نجمع معلومات حساسة دون موافقتك الصريحة.</p>
+                    
+                    <h3>استخدام المعلومات:</h3>
+                    <p>نستخدم المعلومات المجمعة لتوفير وتحسين خدماتنا، وتخصيص تجربتك، والتواصل معك بخصوص التحديثات والعروض. لن نشارك معلوماتك مع أطراف ثالثة دون موافقتك.</p>
+                    
+                    <h3>حماية البيانات:</h3>
+                    <p>نتخذ تدابير أمنية صارمة لحماية بياناتك من الوصول غير المصرح به أو التعديل أو الكشف. نستخدم تقنيات التشفير والحماية المتقدمة.</p>
+                    
+                    <h3>حقوقك:</h3>
+                    <p>يمكنك طلب الوصول إلى بياناتك الشخصية أو تعديلها أو حذفها في أي وقت. كما يمكنك إلغاء الاشتراك في الإشعارات.</p>
+                    
+                    <h3>التحديثات:</h3>
+                    <p>قد نحدث هذه السياسة من وقت لآخر. سنخطرك بأي تغييرات مهمة عبر موقعنا أو البريد الإلكتروني.</p>
+                    
+                    <p>آخر تحديث: ديسمبر 2024</p>
+                </div>
+            </div>
+
+            <div id="aboutContent" class="content-section">
+                <h2><i class="fas fa-info-circle"></i> من نحن</h2>
+                <div class="text-content">
+                    <p>مرحباً بكم في DEMON EXCELLENT - منصتكم المتخصصة في عالم التكنولوجيا والإبداع الرقمي!</p>
+                    
+                    <h3>رؤيتنا:</h3>
+                    <p>نسعى لأن نكون الوجهة الأولى للمطورين والمبدعين في الوطن العربي، حيث نقدم حلولاً تقنية متقدمة ومبتكرة في مجال تطوير المواقع وبوتات Discord.</p>
+                    
+                    <h3>خدماتنا:</h3>
+                    <p>نتخصص في تطوير مواقع الويب التفاعلية والحديثة، بالإضافة إلى برمجة بوتات Discord المتطورة التي تلبي احتياجات المجتمعات الرقمية. فريقنا المختص يضمن جودة عالية وأداء ممتاز.</p>
+                    
+                    <h3>مشاريعنا:</h3>
+                    <p>لدينا مجموعة متنوعة من المشاريع الناجحة مثل GAMES SHOP للتجارة الإلكترونية، DEMON EDITS للتصاميم والتحرير، و DEMON CASH لكسب المال من خلال المهام. كل مشروع مصمم بعناية ليقدم تجربة فريدة ومفيدة.</p>
+                    
+                    <h3>التزامنا:</h3>
+                    <p>نلتزم بتقديم خدمة عملاء ممتازة ودعم فني على مدار الساعة. نؤمن بأهمية الابتكار المستمر ومواكبة أحدث التقنيات لضمان تقديم أفضل الحلول لعملائنا.</p>
+                    
+                    <h3>مجتمعنا:</h3>
+                    <p>ندعوكم للانضمام إلى مجتمع DEMON EXCELLENT النشط، حيث يمكنكم التفاعل مع مطورين آخرين، مشاركة الأفكار، والاستفادة من الموارد التعليمية المجانية التي نوفرها.</p>
+                    
+                    <p>معاً نبني مستقبلاً رقمياً أفضل! 🔥</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
